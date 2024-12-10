@@ -76,6 +76,3 @@ python script2.py encrypted_file.bin mypassword
 ## Notes
 - Ensure you use a strong and unique password for encryption.
 - The scripts are for educational purposes. Use them responsibly and at your own risk.
-
-## License
-This project is licensed under the MIT License.
