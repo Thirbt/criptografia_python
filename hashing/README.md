@@ -1,26 +1,79 @@
-# Passo a Passo Resumido para Usar o Programa HMAC
-### Executar o programa:
+# HMAC File Integrity Checker
 
-##### Salve o código em um arquivo Python, como hmac_tool.py.
-##### Execute o programa no terminal com python hmac_tool.py.
+Este projeto é uma ferramenta em Python para **gerar e verificar HMAC (Hash-based Message Authentication Code)** de arquivos, garantindo a integridade dos dados por meio da verificação de alterações nos arquivos.
 
-### Escolha uma opção:
+---
 
-### 1: Gerar HMAC para um arquivo.
-### 2: Verificar a integridade de um arquivo usando HMAC.
-##### Para Gerar um HMAC (Opção 1):
+## 📜 Descrição
 
-#### Escolha a opção 1 no menu.
-##### Insira o caminho do arquivo (ex.: documento.txt).
-##### Insira uma chave secreta (uma string de sua escolha).
-##### O programa gera um arquivo .hmac contendo o HMAC do arquivo.
+O programa utiliza a biblioteca `cryptography` para criar e validar HMACs com o algoritmo **SHA256**. O usuário pode:
 
-#### Para Verificar um HMAC (Opção 2):
-##### Escolha a opção 2 no menu.
-##### Insira o caminho do arquivo original.
-##### Insira o caminho do arquivo HMAC gerado (ex.: documento.txt.hmac).
-##### Insira a chave secreta usada ao gerar o HMAC.
+- Gerar um HMAC para um arquivo com uma chave secreta.
+- Verificar se um arquivo foi alterado comparando com o HMAC gerado anteriormente.
 
-### O programa verificará:
-##### Se o arquivo é íntegro, exibirá: "Arquivo íntegro. Nenhuma alteração detectada."
-##### Caso contrário, informará que houve alteração ou chave incorreta.
+---
+
+## 🚀 Funcionalidades
+
+- **Gerar HMAC:** Cria um HMAC para um arquivo com base em uma chave secreta informada pelo usuário e salva o resultado no mesmo diretório.
+- **Verificar HMAC:** Valida a integridade do arquivo comparando-o com um HMAC gerado previamente.
+
+---
+
+## 🛠️ Pré-requisitos
+
+Certifique-se de que você tem o seguinte instalado em sua máquina:
+
+- **Python 3.x**
+- Instale a dependência do projeto com:
+
+```bash
+pip install cryptography
+```
+
+## 📥 Instação
+
+1. Clone o repositório ou faça o download dos arquivos.
+2. Instala as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🖥️ Como usar
+
+Após instalar as dependência:
+
+1. Execute o script:
+
+```bash
+python script.py
+```
+
+2. Escolha a aopção desejada:
+
+    - 1: Gerar HMAC.
+    - 2: Verificar HMAC.
+
+## 💡Exemplo de Uso
+
+gerando o HMAC:
+
+```yaml
+Digite o caminho do arquivo para gerar o HMAC: exemplo.txt
+Digite uma chave secreta para o HMAC: chave123
+HMAC gerado com sucesso: exemplo.txt.hmac
+```
+
+verificando o HMAC:
+
+```arduino
+Digite o caminho do arquivo para verificar o HMAC: exemplo.txt
+Digite o caminho do arquivo HMAC gerado: exemplo.txt.hmac
+Arquivo íntegro. Nenhuma alteração detectada.
+```
+
+## 🛡️ Segurança
+
+- Utilize uma chave secreta forte e difícil de adivinhar para garantir a segurança.
+- O uso do ```SHA256``` garante que o processo de hashing é seguro e eficiente.
