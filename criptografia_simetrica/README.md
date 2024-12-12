@@ -1,78 +1,93 @@
 
-# AES File Encryption and Decryption Tools
+# Ferramentas de Criptografia e Descriptografia de Arquivos AES
 
-This repository contains two Python scripts for securely encrypting, decrypting, and viewing the contents of files using the AES encryption algorithm in Cipher Block Chaining (CBC) mode. The scripts utilize the `cryptography` library for encryption and decryption, ensuring secure file handling.
+Este repositório contém dois scripts Python para criptografar, descriptografar e visualizar o conteúdo de arquivos de forma segura, utilizando o algoritmo de criptografia AES no modo Cipher Block Chaining (CBC). Os scripts utilizam a biblioteca `cryptography` para garantir um manuseio seguro dos arquivos.
 
-## Features
+## Funcionalidades
 
-### Script 1: File Encryption and Decryption
-- **Encrypt files**: Protect your files by encrypting them with AES.
-- **Decrypt files**: Retrieve original file contents using the correct password.
-- **Command-line interface**: Perform operations using a simple CLI.
+### Script 1: Criptografia e Descriptografia de Arquivos
 
-### Script 2: View Encrypted Files
-- **In-memory decryption**: View the plaintext content of an encrypted file without saving it to disk.
+- **Criptografar arquivos**: Proteja seus arquivos criptografando-os com AES.
+- **Descriptografar arquivos**: Recupere o conteúdo original dos arquivos utilizando a senha correta.
+- **Interface de linha de comando**: Realize operações através de uma CLI simples.
 
-## Usage
+### Script 2: Visualizar Arquivos Criptografados
 
-### Prerequisites
-- Python 3.7 or higher.
-- Install dependencies:
+- **Descriptografia na memória**: Visualize o conteúdo de um arquivo criptografado em texto puro sem precisar salvá-lo no disco.
+
+## Como Usar
+
+### Pré-requisitos
+
+- Python 3.7 ou superior.
+- Instale as dependências:
   ```bash
   pip install cryptography
   ```
 
-### Script 1: Encrypt and Decrypt Files
+### Script 1: Criptografar e Descriptografar Arquivos
+
 ```bash
-python script1.py [encrypt|decrypt] <input_file> <password> <output_file>
+python script1.py [encrypt|decrypt] <arquivo_entrada> <senha> <arquivo_saida>
 ```
 
-- `encrypt`: Encrypts the specified file.
-- `decrypt`: Decrypts the specified encrypted file.
-- `<input_file>`: Path to the file to encrypt or decrypt.
-- `<password>`: Password used for encryption/decryption.
-- `<output_file>`: Path to save the processed file.
+- `encrypt`: Criptografa o arquivo especificado.
+- `decrypt`: Descriptografa o arquivo criptografado especificado.
+- `<arquivo_entrada>`: Caminho para o arquivo a ser criptografado ou descriptografado.
+- `<senha>`: Senha utilizada para criptografia/descriptografia.
+- `<arquivo_saida>`: Caminho para salvar o arquivo processado.
 
-#### Example
-Encrypting a file:
+#### Exemplo
+
+Criptografando um arquivo:
+
 ```bash
-python script1.py encrypt myfile.txt mypassword encrypted_file.bin
-```
-Decrypting a file:
-```bash
-python script1.py decrypt encrypted_file.bin mypassword decrypted_file.txt
+python script1.py encrypt meu_arquivo.txt minha_senha arquivo_criptografado.bin
 ```
 
-### Script 2: View Encrypted File Contents
+Descriptografando um arquivo:
+
 ```bash
-python script2.py <input_file> <password>
+python script1.py decrypt arquivo_criptografado.bin minha_senha arquivo_descriptografado.txt
 ```
 
-- `<input_file>`: Path to the encrypted file.
-- `<password>`: Password used for decryption.
+### Script 2: Visualizar o Conteúdo de Arquivos Criptografados
 
-#### Example
-Viewing the content of an encrypted file:
 ```bash
-python script2.py encrypted_file.bin mypassword
+python script2.py <arquivo_entrada> <senha>
 ```
 
-## How It Works
+- `<arquivo_entrada>`: Caminho para o arquivo criptografado.
+- `<senha>`: Senha utilizada para descriptografia.
 
-### Encryption
-1. A random salt and initialization vector (IV) are generated.
-2. The password is used with the salt to derive a 256-bit AES key using PBKDF2.
-3. The plaintext file is padded using PKCS7 and encrypted in CBC mode.
+#### Exemplo
 
-### Decryption
-1. The salt and IV are extracted from the encrypted file.
-2. The password and salt are used to derive the decryption key.
-3. The ciphertext is decrypted, and the padding is removed to retrieve the original plaintext.
+Visualizando o conteúdo de um arquivo criptografado:
 
-### Viewing Encrypted Files
-1. Decrypts the file content in memory without saving it to disk.
-2. Outputs the plaintext directly to the console.
+```bash
+python script2.py arquivo_criptografado.bin minha_senha
+```
 
-## Notes
-- Ensure you use a strong and unique password for encryption.
-- The scripts are for educational purposes. Use them responsibly and at your own risk.
+## Como Funciona
+
+### Criptografia
+
+1. Um sal (salt) e um vetor de inicialização (IV) são gerados aleatoriamente.
+2. A senha é usada com o sal para derivar uma chave AES de 256 bits utilizando PBKDF2.
+3. O arquivo em texto puro é preenchido com padding PKCS7 e criptografado no modo CBC.
+
+### Descriptografia
+
+1. O sal e o IV são extraídos do arquivo criptografado.
+2. A senha e o sal são utilizados para derivar a chave de descriptografia.
+3. O texto cifrado é descriptografado, e o padding é removido para recuperar o texto puro original.
+
+### Visualização de Arquivos Criptografados
+
+1. O conteúdo do arquivo é descriptografado na memória sem salvar no disco.
+2. O texto puro é exibido diretamente no console.
+
+## Observações
+
+- Certifique-se de utilizar uma senha forte e única para a criptografia.
+- Os scripts são para propósitos educacionais. Use-os de forma responsável e por sua própria conta e risco.
