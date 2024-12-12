@@ -3,7 +3,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.primitives.hashes import SHA256
 from cryptography.hazmat.backends import default_backend
-import os
 
 def derive_key(password: str, salt: bytes) -> bytes: # Deriva uma chave utilizando o algoritmo PBKDF2 para palavra-passe
     kdf = PBKDF2HMAC(
